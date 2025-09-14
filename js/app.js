@@ -3,9 +3,17 @@ let nomes = [];
 function adicionar(){
     let nomeAmigo = document.getElementById('nome-amigo');
     let lista = document.getElementById('lista-amigos');
-
+    let name = nomeAmigo.value.toUpperCase();
+    for(let i = 0; i < nomes.length; i++){
+        if(nomes[i].toUpperCase() === name){
+            alert('Nome já adicionado. Por favor, insira um nome diferente.');//verificacao se o nome ja foi adicionado
+            nomeAmigo.value = '';
+            return;
+        }
+    }
     if(nomeAmigo.value === ''){
-        alert('Por favor, insira um nome.');
+        alert('Por favor, insira um nome.');//verificacao se o campo esta vazio
+        return;
     }
     else{
         nomes.push(nomeAmigo.value);
@@ -29,6 +37,10 @@ function sortear(){//em
 }
 
 function embaralhar(array){
+    if(nomes.length < 4){// validacao para o embaralhamento
+        alert('Adicione mais nomes para realizar o sorteio.');
+        return;
+    }
     for(let i = array.length - 1; i > 0; i--){
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];

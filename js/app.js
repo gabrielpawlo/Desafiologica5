@@ -34,3 +34,9 @@ function embaralhar(array){
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
+function reiniciar(){
+    nomes = [];
+    document.getElementById('lista-amigos').innerHTML = '';
+    document.getElementById('lista-sorteio').innerHTML = '';
+}

@@ -24,7 +24,7 @@ function adicionar(){
 
 function sortear(){//em
     let lista = document.getElementById('lista-sorteio');
-    if(nomes.length === 0){
+    if(nomes.length === 0){//verificacao se a lista esta vazia
         alert('A lista está vazia. Adicione nomes antes de sortear.');
         return;
     }
@@ -33,7 +33,7 @@ function sortear(){//em
     //lista.innerHTML = `<li>${nomes[0]} tirou ${nomes[1]}</li>`;
     for(let i = 0; i < tamanho ; i++){
         lista.innerHTML += `<li>${nomes[i]} tirou ${nomes[(i + 1) % tamanho]}</li>`;
-    }
+    }//logica para o sorteio circular
 }
 
 function embaralhar(array){
@@ -49,6 +49,6 @@ function embaralhar(array){
 
 function reiniciar(){
     nomes = [];
-    document.getElementById('lista-amigos').innerHTML = '';
-    document.getElementById('lista-sorteio').innerHTML = '';
+    document.getElementById('lista-amigos').innerHTML = '';//limpar a lista de amigos
+    document.getElementById('lista-sorteio').innerHTML = '';//limpar a lista de sorteio
 }
